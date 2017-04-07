@@ -18,3 +18,6 @@ Route::get('/', function () {
 Route::any('/artical', ['uses' => 'ArticalController@showArtical',  function() {
 }]);
 
+Route::any('/register', ['uses' => 'UserController@register'], function() {
+});
+
