@@ -15,7 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::any('/artical', ['uses' => 'ArticalController@showArtical',  function() {
+Route::any('/artical', ['uses' => 'ArticalController@create',  function() {
+}]);
+Route::get('/artical/{id}', ['uses' => 'ArticalController@show', function() {
+
+}]);
+
+Route::get('/artical/user/{userId}', ['uses' => 'ArticalController@find', function() {
+
 }]);
 
 Route::any('/register', ['uses' => 'UserController@register'], function() {

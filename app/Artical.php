@@ -30,10 +30,10 @@ class Artical extends Model
         //临时绝对路径
         $realPath = $file->getRealPath();
         $date = Carbon::now()->timezone('Asia/Shanghai')->format('Y-m-d-H-i-s');
-        $filename = md5($originalName).$date.$originalName;
+        $filename = md5($originalName).$date.".".$ext;
         var_dump('filename = '. $filename);
         Storage::disk('artical')->putFileAs('/', new File($file), $filename);
-        $url = Storage::disk('artical')->url($originalName);
+        $url = Storage::disk('artical')->url($filename);
         var_dump('url = ' . $url);
         $artical = Artical::Create([
             'title' => $originalName,
