@@ -26,7 +26,7 @@ class ArticalController extends Controller
                     return "不支持的文件类型，请上传markdown文档";
                 }
                 $artical = Artical::saveArtical($file);
-                dd($artical);
+                return view('Artical.artical');
             }
         }
         return view('Artical.artical');
@@ -58,8 +58,23 @@ class ArticalController extends Controller
     {
         $artices = Artical::where('user_id', $userId)->get();
         foreach ($artices as $artical) {
-            var_dump($artical->file_name."</br>");
+            var_dump($artical->title."</br>");
         }
         dd($artices);
+    }
+
+    public function articalList($userId)
+    {
+        $data = array();
+        $artices = Artical::where('user_id', $userId)->get();
+        foreach ($artices as $artical) {
+            $title = substr($artical->title, 0, -3);
+            $artical = array(
+                'id' => $artical->id,
+                'title' => $title
+            );
+            $data[] = $artical;
+        }
+        return ApiHelper::responseForSuccess($data);
     }
 }

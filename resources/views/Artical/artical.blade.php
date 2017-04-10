@@ -7,7 +7,21 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/artical.css') }}">
 </head>
 <body>
+    <div class="jumbotron">
+        <div class="container">
+        <p>Blog Server System</p>
+        </div>
+    </div>
     <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-8">
+                <ul class="nav nav-tabs">
+                    <li role="presentation" class="active"><a href="#">Home</a></li>
+                    <li role="presentation"><a href="#">Upload</a></li>
+                    <li role="presentation"><a href="#">Delete</a></li>
+                </ul>
+            </div>
+        </div>
         <div class="row" id="form">
             <form method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}

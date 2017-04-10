@@ -20,4 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/artical/{id}', ['uses' => 'ArticalController@find', function() {
 }]);
 
+Route::get('/artical/user/{id}', ['uses' => 'ArticalController@articalList', function() {
+}]);
+
 
