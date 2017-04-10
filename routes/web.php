@@ -21,7 +21,7 @@ Route::get('/artical/{id}', ['uses' => 'ArticalController@show', function() {
 
 }]);
 
-Route::get('/artical/user/{userId}', ['uses' => 'ArticalController@find', function() {
+Route::get('/artical/user/{userId}', ['uses' => 'ArticalController@findUserArtices', function() {
 
 }]);
 

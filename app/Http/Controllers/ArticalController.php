@@ -8,6 +8,7 @@ use Illuminate\Http\File;
 use App\Http\Requests;
 use App\Artical;
 use Parsedown;
+use App\Helper\ApiHelper;
 
 class ArticalController extends Controller
 {
@@ -42,7 +43,18 @@ class ArticalController extends Controller
         echo Parsedown::instance()->text($file);
     }
 
-    public function find($userId)
+    public function find($id)
+    {
+        $artical = Artical::find($id);
+        if ($artical == null) {
+            return "没有找到该文章";
+        }
+        $file = Storage::disk('artical')->get($artical->file_name);
+        $data = array('artical' => $file);
+        return ApiHelper::responseForSuccess($data);
+    }
+
+    public function findUserArtices($userId)
     {
         $artices = Artical::where('user_id', $userId)->get();
         foreach ($artices as $artical) {
