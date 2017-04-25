@@ -71,10 +71,13 @@ class ArticalController extends Controller
             $title = substr($artical->title, 0, -3);
             $artical = array(
                 'id' => $artical->id,
-                'title' => $title
+                'title' => $title,
+                'createdTime' => $artical->created_at->format('Y-m-d'),
+                'description' => $artical->description
             );
             $data[] = $artical;
         }
+        // dd($data);
         return ApiHelper::responseForSuccess($data);
     }
 }
