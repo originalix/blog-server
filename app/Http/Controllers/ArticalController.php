@@ -80,4 +80,9 @@ class ArticalController extends Controller
         // dd($data);
         return ApiHelper::responseForSuccess($data);
     }
+
+    public function parse()
+    {
+        return '解析Markdown';
+    }
 }
