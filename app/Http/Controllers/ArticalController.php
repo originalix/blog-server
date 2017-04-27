@@ -81,8 +81,14 @@ class ArticalController extends Controller
         return ApiHelper::responseForSuccess($data);
     }
 
-    public function parse()
+    public function parse(Request $request)
     {
-        return '解析Markdown';
+        $artical = Artical::find(4);
+        if ($artical == null) {
+            return "没有找到该文章";
+        }
+        $file = Storage::disk('artical')->get($artical->file_name);
+        var_dump($file);
+        $regexTitle = '/title/'
     }
 }
