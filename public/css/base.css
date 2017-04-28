@@ -1,0 +1,27 @@
+nav .container {
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.logo {
+  position: relative;
+  display: inline-flex;
+  line-height: 25px;
+  font-size: 25px;
+  font-weight: 800;
+  color: #ddd;
+}
+
+.navi {
+  display: inline-block;
+  padding: 0;
+}
+
+.item {
+  display: inline-block;
+  line-height: 25px;
+  font-size: 15px;
+  color: #ddd;
+}
