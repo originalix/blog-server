@@ -1,6 +1,5 @@
 nav .container {
   padding: 0;
-  margin: 0;
   margin-top: 10px;
   margin-left: 10px;
 }
@@ -16,12 +15,21 @@ nav .container {
 
 .navi {
   display: inline-block;
+  float: right;
   padding: 0;
 }
 
 .item {
   display: inline-block;
+}
+
+.item a {
+  margin-right: 20px;
   line-height: 25px;
   font-size: 15px;
   color: #ddd;
+}
+
+.jumbotron {
+  text-align: center;
 }
