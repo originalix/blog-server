@@ -88,6 +88,6 @@ class ArticalController extends Controller
             return "没有找到该文章";
         }
         $file = Storage::disk('artical')->get($artical->file_name);
-        return view('artical.base');
+        return view('artical.parse');
     }
 }

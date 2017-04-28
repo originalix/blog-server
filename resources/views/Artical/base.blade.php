@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Leon's Blog</title>
+    <title>Leon's Blog - @yield('title')</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('bootstrap/dist/css/bootstrap.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/base.css') }}">
 </head>
@@ -22,7 +22,13 @@
           <p>Management Systems</p>
         </div>
     </div>
-    <div class="content"></div>
+    <div class="content">
+      <div class="container">
+        @section('content')
+          this is the master content
+        @show
+      </div>
+    </div>
     <footer class="footer-wrapper">
       <div class="sperate">
         <hr>

@@ -38,6 +38,10 @@ nav .container {
   margin-top: 30px;
 }
 
+.content > .container {
+  max-width: 75%;
+}
+
 .footer-wrapper {
   position: absolute;
   left: 0;
