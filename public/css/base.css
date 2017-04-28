@@ -42,11 +42,12 @@ nav .container {
   max-width: 75%;
 }
 
+footer {
+    height: 50px;
+    margin-top: -50px;
+}
+
 .footer-wrapper {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
   margin: 0 auto;
 }
 
@@ -59,4 +60,13 @@ nav .container {
 .sperate {
   width: 80%;
   margin: 0 auto;
+}
+
+.artical {
+  margin-top: 30px;
+}
+
+.submit {
+  float: right;
+  margin-top: 20px;
 }
