@@ -23,6 +23,11 @@
         </div>
     </div>
     <div class="content"></div>
-    <footer></footer>
+    <footer class="footer-wrapper">
+      <div class="sperate">
+        <hr>
+      </div>
+      <p>© 2015 - 2017 Originalee,powered By Leon</p>
+    </footer>
 </body>
 </html>
