@@ -19,6 +19,10 @@ class Artical extends Model
         return $this->belongsTo('App\User');
     }
 
+    /** 存储文件并获取文件路径
+     * @param $file 存储文件
+     * @return artical
+     */
     public static function saveArtical($file)
     {
         //获取原文件名

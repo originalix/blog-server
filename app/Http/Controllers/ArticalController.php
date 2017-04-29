@@ -94,10 +94,20 @@ class ArticalController extends Controller
     public function newCreate(Request $request)
     {
         if ($request->isMethod('POST')) {
-            $artical = $this->validArtical($request);
+            $artical = $this->saveArtical($request);
             dd($artical);
         }
         return view('artical.artical');
+    }
+
+    private function saveArtical(Request $request)
+    {
+        $artical = $this->validArtical($request);
+        if ($artical != null) {
+            $artical->user_id = 1;
+            $artical->save();
+        }
+        return $artical;
     }
 
     private function validArtical(Request $request)
@@ -107,13 +117,13 @@ class ArticalController extends Controller
             $artical->title = $request->get('title');
         }
         if ($request->get('desc')) {
-            $artical->description = $request->get('desc');
+            $artical->desc = $request->get('desc');
         }
         if ($request->get('content')) {
             $artical->content = $request->get('content');
         }
         if ($request->get('date')) {
-            $artical->date = $request->get('date');
+            $artical->created_at = $request->get('date');
         }
         return $artical;
     }
