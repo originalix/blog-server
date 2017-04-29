@@ -3,7 +3,7 @@
 @section('title', 'Write')
 
 @section('content')
-    <form>
+    <form method="post" enctype="multipart/form-data">
       <div class="title">
           <div class="row">
             <div class="col-md-8">

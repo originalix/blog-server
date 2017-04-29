@@ -90,4 +90,9 @@ class ArticalController extends Controller
         $file = Storage::disk('artical')->get($artical->file_name);
         return view('artical.parse');
     }
+
+    public function newCreate(Request $request)
+    {
+        return view('artical.artical');
+    }
 }
