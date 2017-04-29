@@ -12,24 +12,45 @@ use App\Helper\ApiHelper;
 
 class ArticalController extends Controller
 {
-    /**
+    /**新建文章
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function create(Request $request)
+    public function newCreate(Request $request)
     {
         if ($request->isMethod('POST')) {
-            $file = $request->file;
-            if($file->isValid()){
-                $type = $file->getClientMimeType();
-                if ($type != "text/markdown") {
-                    return "不支持的文件类型，请上传markdown文档";
-                }
-                $artical = Artical::saveArtical($file);
-                return view('Artical.artical');
-            }
+            $artical = $this->saveArtical($request);
+            dd($artical);
         }
-        return view('Artical.artical');
+        return view('artical.artical');
+    }
+
+    private function saveArtical(Request $request)
+    {
+        $artical = $this->validArtical($request);
+        if ($artical != null) {
+            $artical->user_id = 1;
+            $artical->save();
+        }
+        return $artical;
+    }
+
+    private function validArtical(Request $request)
+    {
+        $artical = new Artical();
+        if ($request->get('title')) {
+            $artical->title = $request->get('title');
+        }
+        if ($request->get('desc')) {
+            $artical->desc = $request->get('desc');
+        }
+        if ($request->get('content')) {
+            $artical->content = $request->get('content');
+        }
+        if ($request->get('date')) {
+            $artical->created_at = $request->get('date');
+        }
+        return $artical;
     }
 
     public function show($id)
@@ -89,42 +110,5 @@ class ArticalController extends Controller
         }
         $file = Storage::disk('artical')->get($artical->file_name);
         return view('artical.parse');
-    }
-
-    public function newCreate(Request $request)
-    {
-        if ($request->isMethod('POST')) {
-            $artical = $this->saveArtical($request);
-            dd($artical);
-        }
-        return view('artical.artical');
-    }
-
-    private function saveArtical(Request $request)
-    {
-        $artical = $this->validArtical($request);
-        if ($artical != null) {
-            $artical->user_id = 1;
-            $artical->save();
-        }
-        return $artical;
-    }
-
-    private function validArtical(Request $request)
-    {
-        $artical = new Artical();
-        if ($request->get('title')) {
-            $artical->title = $request->get('title');
-        }
-        if ($request->get('desc')) {
-            $artical->desc = $request->get('desc');
-        }
-        if ($request->get('content')) {
-            $artical->content = $request->get('content');
-        }
-        if ($request->get('date')) {
-            $artical->created_at = $request->get('date');
-        }
-        return $artical;
     }
 }
