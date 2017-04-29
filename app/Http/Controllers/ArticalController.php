@@ -93,6 +93,11 @@ class ArticalController extends Controller
 
     public function newCreate(Request $request)
     {
+        if ($request->isMethod('POST')) {
+            if ($request->get('content')) {
+                dd($request->get('content'));
+            }
+        }
         return view('artical.artical');
     }
 }
