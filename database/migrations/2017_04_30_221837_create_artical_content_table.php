@@ -31,6 +31,6 @@ class CreateArticalContentTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('ArticlesContent');
     }
 }
