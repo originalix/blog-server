@@ -70,8 +70,7 @@ class ArticalController extends Controller
         if ($artical == null) {
             return "没有找到该文章";
         }
-        $file = Storage::disk('artical')->get($artical->file_name);
-        $data = array('artical' => $file);
+        $data = array('artical' => $artical);
         return ApiHelper::responseForSuccess($data);
     }
 
