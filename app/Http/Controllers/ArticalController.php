@@ -16,7 +16,7 @@ class ArticalController extends Controller
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function newCreate(Request $request)
+    public function create(Request $request)
     {
         if ($request->isMethod('POST')) {
             $artical = $this->saveArtical($request);
@@ -89,12 +89,13 @@ class ArticalController extends Controller
         $data = array();
         $artices = Artical::where('user_id', $userId)->get();
         foreach ($artices as $artical) {
-            $title = substr($artical->title, 0, -3);
+            $title = $artical->title;
             $artical = array(
                 'id' => $artical->id,
                 'title' => $title,
                 'createdTime' => $artical->created_at->format('Y-m-d'),
-                'description' => $artical->description
+                'description' => $artical->desc,
+                'content' => $artical->content
             );
             $data[] = $artical;
         }
