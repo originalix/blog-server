@@ -10,4 +10,9 @@ class ArticalContent extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
     protected $guarded = [];
+
+    public function artical()
+    {
+        return $this->belongsTo('App\Artical');
+    }
 }
