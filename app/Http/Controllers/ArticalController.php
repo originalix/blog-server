@@ -32,12 +32,13 @@ class ArticalController extends Controller
         if (!$isValid) {
             return null;
         }
-        $artical = new Artical();
-        $articalContent = new ArticalContent();
         $title = $request->get('title');
         $desc = $request->get('desc');
         $content = $request->get('content');
         $date = $request->get('date');
+        $artical = Artical::init(1, $title, $desc, $date);
+        $content = ArticalContent::init($artical, $content);
+        return $content;
     }
 
     private function validArtical(Request $request)

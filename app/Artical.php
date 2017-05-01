@@ -19,6 +19,17 @@ class Artical extends Model
         return $this->belongsTo('App\User');
     }
 
+    public static function init($userId, $title, $desc, $date)
+    {
+        $artical = new Artical();
+        $artical->user_id = $userId;
+        $artical->title = $title;
+        $artical->desc = $desc;
+        $artical->created_at = $date;
+        $artical->save();
+        return $artical;
+    }
+
     /** 存储文件并获取文件路径
      * @param $file 存储文件
      * @return artical
