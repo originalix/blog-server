@@ -88,7 +88,7 @@ class ArticalController extends Controller
     public function articalList($userId)
     {
         $data = array();
-        $artices = Artical::where('user_id', $userId)->get();
+        $artices = Artical::where('user_id', $userId)->orderBy('updated_at', 'desc')->get();
         foreach ($artices as $artical) {
             $title = $artical->title;
             $artical = array(
