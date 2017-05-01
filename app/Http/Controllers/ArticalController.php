@@ -68,7 +68,7 @@ class ArticalController extends Controller
 
     public function find($id)
     {
-        $artical = Artical::find($id);
+        $artical = ArticalContent::find($id);
         if ($artical == null) {
             return "没有找到该文章";
         }
