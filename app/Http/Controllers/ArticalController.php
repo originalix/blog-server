@@ -7,6 +7,7 @@ use Storage;
 use Illuminate\Http\File;
 use App\Http\Requests;
 use App\Artical;
+use App\ArticalContent;
 use Parsedown;
 use App\Helper\ApiHelper;
 
@@ -27,30 +28,30 @@ class ArticalController extends Controller
 
     private function saveArtical(Request $request)
     {
-        $artical = $this->validArtical($request);
-        if ($artical != null) {
-            $artical->user_id = 1;
-            $artical->save();
+        $isValid = $this->validArtical($request);
+        if (!$isValid) {
+            return null;
         }
-        return $artical;
+        $artical = new Artical();
+        $articalContent = new ArticalContent();
+        $title = $request->get('title');
+        $desc = $request->get('desc');
+        $content = $request->get('content');
+        $date = $request->get('date');
     }
 
     private function validArtical(Request $request)
     {
-        $artical = new Artical();
-        if ($request->get('title')) {
-            $artical->title = $request->get('title');
+        if (!$request->get('title')) {
+            return false;
         }
-        if ($request->get('desc')) {
-            $artical->desc = $request->get('desc');
+        if (!$request->get('content')) {
+            return false;
         }
-        if ($request->get('content')) {
-            $artical->content = $request->get('content');
+        if (!$request->get('date')) {
+            return false;
         }
-        if ($request->get('date')) {
-            $artical->created_at = $request->get('date');
-        }
-        return $artical;
+        return true;
     }
 
     public function show($id)
@@ -93,12 +94,10 @@ class ArticalController extends Controller
                 'id' => $artical->id,
                 'title' => $title,
                 'createdTime' => $artical->created_at->format('Y-m-d'),
-                'description' => $artical->desc,
-                'content' => $artical->content
+                'description' => $artical->desc
             );
             $data[] = $artical;
         }
-        // dd($data);
         return ApiHelper::responseForSuccess($data);
     }
 
