@@ -11,11 +11,11 @@ class ApiHelper
    * @param  integer $code    [状态码]
    * @return [type]           [Response]
    */
-  static public function responseForSuccess($data, $code = 200)
+  static public function responseForSuccess($data, $dataName, $code = 200)
   {
      return \Response::json([
       'code' => $code,
-      'data' => $data
+      $dataName => $data
       ]);
   }
 

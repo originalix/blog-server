@@ -72,8 +72,14 @@ class ArticalController extends Controller
         if ($artical == null) {
             return "没有找到该文章";
         }
-        $data = array('artical' => $artical);
-        return ApiHelper::responseForSuccess($data);
+        $data = array(
+            'id' => $artical->artical_id,
+            'title' => $artical->title,
+            'createdTime' => $artical->created_at->format('Y-m-d'),
+            'description' => $artical->desc,
+            'content' => $artical->content
+        );
+        return ApiHelper::responseForSuccess($data, 'artical');
     }
 
     public function findUserArtices($userId)
@@ -99,7 +105,7 @@ class ArticalController extends Controller
             );
             $data[] = $artical;
         }
-        return ApiHelper::responseForSuccess($data);
+        return ApiHelper::responseForSuccess($data, 'data');
     }
 
     public function parse(Request $request)
