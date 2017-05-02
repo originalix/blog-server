@@ -32,17 +32,16 @@ class UserController extends Controller
     {
         if ($request->isMethod('POST')) {
             if (!$this->validUserInfo($request)) {
-                dd('账号验证失败');
-                return;
+                return view('Users.login')->with('error', '账号或密码格式错误');
             }
             $username = $request->get('username');
             $password = $request->get('password');
             $user = User::where ('username', $username)->first();
             if ($user == null) {
-                return;
+                return view('Users.login')->with('error', '用户名不存在');
             }
             if (!Hash::check($password, $user->password)) {
-                return;
+                return view('Users.login')->with('error', '密码错误');
             }
             return view('Users.login')->with('success', '登录成功');
         }
