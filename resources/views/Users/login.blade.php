@@ -32,4 +32,5 @@
     </div>
   </div>
 </form>
+    @include('Users.loginMessage')
 @endsection

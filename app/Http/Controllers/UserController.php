@@ -44,6 +44,7 @@ class UserController extends Controller
             if (!Hash::check($password, $user->password)) {
                 return;
             }
+            return view('Users.login')->with('success', '登录成功');
         }
         return view('Users.login');
     }
