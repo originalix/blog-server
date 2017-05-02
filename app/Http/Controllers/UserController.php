@@ -5,16 +5,26 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
     public function register()
     {
-        $user = User::Create([
-            'username' => 'originalix',
-            'password' => '930127'
-        ]);
+        $username = 'originalix';
+        $password = '930127';
+        $password = Hash::make($password);
+        $bool = User::where ('username', $username)->first();
+        if ($bool != Null) {
+            return ApiHelper::responseForError('该账号已存在', 422);
+        }
 
+        $user = User::Create([
+            'username' => $username,
+            'password' => $password
+        ]);
+        $user->remember_token = Token::createToken($user->id, $user->username, $user->created_at->getTimestamp());
+        $user->save();
         dd($user);
     }
 
@@ -26,7 +36,7 @@ class UserController extends Controller
             }
             $username = $request->get('username');
             $password = $request->get('password');
-            
+
         }
         return view('Users.login');
     }
