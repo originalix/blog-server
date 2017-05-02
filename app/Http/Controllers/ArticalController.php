@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Storage;
 use Illuminate\Http\File;
+use Illuminate\Support\Facades\Cookie;
 use App\Http\Requests;
 use App\Artical;
 use App\ArticalContent;
@@ -19,11 +20,13 @@ class ArticalController extends Controller
      */
     public function create(Request $request)
     {
-        if ($request->isMethod('POST')) {
-            $artical = $this->saveArtical($request);
-            dd($artical);
-        }
-        return view('artical.artical');
+        $cookie = Cookie::forget('token');
+//        $cookie = $request->cookie();
+//        if ($request->isMethod('POST')) {
+//            $artical = $this->saveArtical($request);
+//            dd($artical);
+//        }
+//        return view('artical.artical');
     }
 
     private function saveArtical(Request $request)

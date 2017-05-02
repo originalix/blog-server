@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Cookie;
 use App\Helper\Token;
 
 class UserController extends Controller
@@ -43,6 +44,7 @@ class UserController extends Controller
             if (!Hash::check($password, $user->password)) {
                 return view('Users.login')->with('error', '密码错误');
             }
+            $this->setLoginCookie($user);
             return view('Users.login')->with('success', '登录成功');
         }
         return view('Users.login');
@@ -62,5 +64,10 @@ class UserController extends Controller
             return false;
         }
         return true;
+    }
+
+    private function setLoginCookie(User $user)
+    {
+        Cookie::queue('lix_blog_token', $user->remember_token, 3);
     }
 }
