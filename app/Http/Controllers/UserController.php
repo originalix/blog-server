@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
+use App\Helper\Token;
 
 class UserController extends Controller
 {
@@ -18,7 +19,6 @@ class UserController extends Controller
         if ($bool != Null) {
             return ApiHelper::responseForError('该账号已存在', 422);
         }
-
         $user = User::Create([
             'username' => $username,
             'password' => $password
@@ -31,12 +31,22 @@ class UserController extends Controller
     public function login(Request $request)
     {
         if ($request->isMethod('POST')) {
-            if ($this->validUserInfo($request)) {
+            if (!$this->validUserInfo($request)) {
+                dd('账号验证失败');
                 return;
             }
             $username = $request->get('username');
             $password = $request->get('password');
-
+            $user = User::where ('username', $username)->first();
+            if ($user == null) {
+                dd('账号不存在');
+                return;
+            }
+            if (!Hash::check($password, $user->password)) {
+                dd('密码错误');
+                return;
+            }
+            dd($user);
         }
         return view('Users.login');
     }
@@ -52,6 +62,7 @@ class UserController extends Controller
             return false;
         }
         if (!preg_match('/^[\\~!@#$%^&*()-_=+|{}\[\],.?\/:;\'\"\d\w]{5,16}$/', $password)) {
+            
             return false;
         }
         return true;
