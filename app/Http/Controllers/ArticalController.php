@@ -28,8 +28,9 @@ class ArticalController extends Controller
         if ($request->isMethod('POST')) {
             $artical = $this->saveArtical($request);
             if (!$artical) {
-                return view('artical.upload');
+                return view('artical.upload')->with('error', '上传文章失败');
             }
+            return view('artical.upload')->with('artical', $artical);
         }
         return view('artical.artical');
     }
