@@ -68,6 +68,6 @@ class UserController extends Controller
 
     private function setLoginCookie(User $user)
     {
-        Cookie::queue('lix_blog_token', $user->remember_token, 3);
+        Cookie::queue('lix_blog_token', $user->remember_token, 60);
     }
 }
