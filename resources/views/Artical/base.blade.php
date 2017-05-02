@@ -11,8 +11,8 @@
       <div class="container">
         <div class="logo">Originalee</div>
         <ul class="navi">
-          <li class="item active"><a href="#">Home</a></li>
-          <li class="item"><a href="#">Write</a></li>
+          <li class="item active"><a href="login">Home</a></li>
+          <li class="item"><a href="artical">Write</a></li>
         </ul>
       </div>
     </nav>
