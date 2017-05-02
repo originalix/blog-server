@@ -66,13 +66,12 @@ class ArticalController extends Controller
 
     public function show($id)
     {
-        $artical = Artical::find($id);
+        $artical = ArticalContent::find($id);
         if ($artical == null) {
             return "没有找到该文章";
         }
-        $file = Storage::disk('artical')->get($artical->file_name);
-        $Parsedown = new Parsedown();
-        echo Parsedown::instance()->text($file);
+//        $artical->content = Parsedown::instance()->text($content);
+        return view('artical.show')->with('artical', $artical);
     }
 
     public function find($id)

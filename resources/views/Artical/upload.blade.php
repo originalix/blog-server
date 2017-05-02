@@ -13,7 +13,7 @@
 @if(isset($artical))
     <div class="alert alert-success" role="alert">
         <h3>上传成功</h3>
-        <a href="#" class="alert-link"><h3>{{ $artical->title }}</h3></a>
+        <a href="artical/{{ $artical->id }}" class="alert-link"><h3>{{ $artical->title }}</h3></a>
     </div>
 @endif
 
