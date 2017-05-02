@@ -39,14 +39,11 @@ class UserController extends Controller
             $password = $request->get('password');
             $user = User::where ('username', $username)->first();
             if ($user == null) {
-                dd('账号不存在');
                 return;
             }
             if (!Hash::check($password, $user->password)) {
-                dd('密码错误');
                 return;
             }
-            dd($user);
         }
         return view('Users.login');
     }
@@ -62,7 +59,6 @@ class UserController extends Controller
             return false;
         }
         if (!preg_match('/^[\\~!@#$%^&*()-_=+|{}\[\],.?\/:;\'\"\d\w]{5,16}$/', $password)) {
-            
             return false;
         }
         return true;
