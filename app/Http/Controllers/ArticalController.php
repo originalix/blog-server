@@ -102,18 +102,19 @@ class ArticalController extends Controller
     public function articalList($userId)
     {
         $data = array();
-        $artices = Artical::where('user_id', $userId)->orderBy('updated_at', 'desc')->get();
-        foreach ($artices as $artical) {
-            $title = $artical->title;
-            $artical = array(
-                'id' => $artical->id,
-                'title' => $title,
-                'createdTime' => $artical->created_at->format('Y-m-d'),
-                'description' => $artical->desc
-            );
-            $data[] = $artical;
-        }
-        return ApiHelper::responseForSuccess($data, 'data');
+        $artices = Artical::where('user_id', $userId)->orderBy('updated_at', 'desc')->paginate(2);
+        return $artices;
+//        foreach ($artices->data as $artical) {
+//            $title = $artical->title;
+//            $artical = array(
+//                'id' => $artical->id,
+//                'title' => $title,
+//                'createdTime' => $artical->created_at->format('Y-m-d'),
+//                'description' => $artical->desc
+//            );
+//            $data[] = $artical;
+//        }
+//        return ApiHelper::responseForSuccess($data, 'data');
     }
 
     public function parse(Request $request)
