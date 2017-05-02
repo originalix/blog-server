@@ -17,4 +17,9 @@ class UserController extends Controller
 
         dd($user);
     }
+
+    public function login()
+    {
+        return view('Users.login');
+    }
 }

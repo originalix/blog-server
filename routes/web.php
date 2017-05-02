@@ -30,5 +30,8 @@ Route::get('/artical/user/{userId}', ['uses' => 'ArticalController@findUserArtic
 Route::any('/register', ['uses' => 'UserController@register'], function() {
 });
 
+Route::any('/login', ['uses' => 'UserController@login'], function() {
+});
+
 Route::any('/parse', ['uses' => 'ArticalController@parse'], function() {
 });
