@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ArticalContent extends Model
 {
-    protected $table = 'ArticlesContent';
+    protected $table = 'articlesContent';
     protected $primaryKey = 'id';
     public $timestamps = true;
     protected $guarded = [];
