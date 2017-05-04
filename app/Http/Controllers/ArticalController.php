@@ -105,7 +105,7 @@ class ArticalController extends Controller
         if ($count != null) {
             $artices = Artical::where('user_id', $userId)->orderBy('updated_at', 'desc')->paginate($count);
         } else {
-            $artices = Artical::where('user_id', $userId)->orderBy('updated_at', 'desc')->paginate(3);
+            $artices = Artical::where('user_id', $userId)->orderBy('updated_at', 'desc')->paginate(10);
         }
         return $artices;
     }
