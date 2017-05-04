@@ -16,7 +16,7 @@ class CreateArticalContentTable extends Migration
         Schema::create('articlesContent', function (Blueprint $table) {
            $table->increments('id');
            $table->integer('artical_id')->unsigned();
-           $table->foreign('artical_id')->references('id')->on('Articles')->onDelete('cascade');
+           $table->foreign('artical_id')->references('id')->on('articles')->onDelete('cascade');
            $table->string('title');
            $table->longText('desc');
            $table->longText('content');
