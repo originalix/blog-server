@@ -13,7 +13,7 @@ class CreateArticalContentTable extends Migration
      */
     public function up()
     {
-        Schema::create('ArticlesContent', function (Blueprint $table) {
+        Schema::create('articlesContent', function (Blueprint $table) {
            $table->increments('id');
            $table->integer('artical_id')->unsigned();
            $table->foreign('artical_id')->references('id')->on('Articles')->onDelete('cascade');
