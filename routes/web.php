@@ -35,3 +35,8 @@ Route::any('/login', ['uses' => 'UserController@login'], function() {
 
 Route::any('/parse', ['uses' => 'ArticalController@parse'], function() {
 });
+
+Route::any('/testmain', ['uses' => 'TestMainController@test'], function () {
+});
+Route::any('/belong', ['uses' => 'TestMainController@belong'], function () {
+});
