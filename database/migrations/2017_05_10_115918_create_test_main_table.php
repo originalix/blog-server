@@ -15,8 +15,8 @@ class CreateTestMainTable extends Migration
     {
         Schema::create('test_main', function (Blueprint $table) {
             $table->increments('id');
-                $table->string('nikename', 20)->index()->nullable();
-                $table->string('mobile')->index()->nullable();
+                $table->string('nikename', 20)->nullable();
+                $table->string('mobile')->nullable();
                 $table->string('password')->nullable();
             $table->timestamps();
             $table->softDeletes();
