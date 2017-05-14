@@ -4,7 +4,11 @@
     <h1 class="title">Ajax Request</h1>
 
     <div class="list">
-        @if(count($arti))
+        {{--@if(count($artices))--}}
+            @foreach($articales as $artical)
+                <h3>{{$artical->title}}</h3>
+            @endforeach
+        {{--@endif--}}
     </div>
 @stop
 
