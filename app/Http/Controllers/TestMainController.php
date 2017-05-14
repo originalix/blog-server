@@ -34,4 +34,9 @@ class TestMainController extends Controller
                         ->delete();
         return ['code' => 200, 'testMain' => $main];
     }
+
+    public function ajax()
+    {
+        return $this->render('Test.ajax');
+    }
 }

@@ -40,3 +40,7 @@ Route::any('/testmain', ['uses' => 'TestMainController@test'], function () {
 });
 Route::any('/belong', ['uses' => 'TestMainController@belong'], function () {
 });
+Route::any('/delete', ['uses' => 'TestMainController@delete'], function () {
+});
+Route::any('/ajax', ['uses' => 'TestMainController@ajax'], function () {
+});
