@@ -1,8 +1,11 @@
 @extends('Test.base')
 
 @section('content')
-    <h1 class="title">Ajax Ajax</h1>
-    <h2>test artical</h2>
+    <h1 class="title">Ajax Request</h1>
+
+    <div class="list">
+        @if(count($arti))
+    </div>
 @stop
 
 @section('footer-js')

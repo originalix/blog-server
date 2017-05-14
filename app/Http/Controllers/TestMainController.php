@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\testBelong;
 use App\testMain;
+use App\Artical;
 
 class TestMainController extends Controller
 {
@@ -37,6 +38,7 @@ class TestMainController extends Controller
 
     public function ajax()
     {
-        return view('Test.ajax');
+        $artices = Artical::where('user_id', 1)->orderBy('updated_at', 'desc')->paginate(1);
+        return view('Test.ajax', with($artices));
     }
 }
