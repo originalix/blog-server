@@ -4,7 +4,7 @@
     <h1 class="title">Ajax Request</h1>
     <button class="btn">ajax</button>
     <div class="list">
-        <ul>
+        <ul class="ul-list">
             <li class="item">
                 @foreach($articales as $artical)
                     <h3>{{$artical->title}}</h3>
@@ -29,7 +29,8 @@
               url: "/blogService/public/ajax",
               dataType: "html"
             }).done( function (msg) {
-              alert(msg);
+              console.log(msg);
+              $(msg).appendTo('.ul-list');
             })
         });
     </script>

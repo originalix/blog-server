@@ -40,7 +40,7 @@ class TestMainController extends Controller
     {
         $articales = Artical::where('user_id', 1)->orderBy('updated_at', 'desc')->paginate(1);
         if ($request->ajax()) {
-            return ['type' => 'ajax'];
+            return view('Test.add', ['articales' => $articales]);
         }
         return view('Test.ajax', ['articales' => $articales]);
     }
