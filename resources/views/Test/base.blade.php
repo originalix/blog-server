@@ -5,7 +5,6 @@
     <title>Leon's Blog - @yield('title')</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('bootstrap/dist/css/bootstrap.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/base.css') }}">
-    <script src="datetime/jquery/jquery-1.8.3.min.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
@@ -36,5 +35,8 @@
       </div>
       <p>© 2015 - 2017 Originalee,powered By Leon</p>
     </footer>
+
+    @section('footer-js')
+    @show
 </body>
 </html>
