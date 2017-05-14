@@ -37,6 +37,6 @@ class TestMainController extends Controller
 
     public function ajax()
     {
-        return $this->render('Test.ajax');
+        return view('Test.ajax');
     }
 }
