@@ -36,9 +36,12 @@ class TestMainController extends Controller
         return ['code' => 200, 'testMain' => $main];
     }
 
-    public function ajax()
+    public function ajax(Request $request)
     {
         $articales = Artical::where('user_id', 1)->orderBy('updated_at', 'desc')->paginate(1);
+        if ($request->ajax()) {
+            return ['type' => 'ajax'];
+        }
         return view('Test.ajax', ['articales' => $articales]);
     }
 }
