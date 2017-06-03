@@ -35,5 +35,5 @@ class CreateTestBelongTable extends Migration
 
 /*
 id title price
-id book_id comment_count
+id book_id comment
  */
