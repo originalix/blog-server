@@ -17,7 +17,6 @@ class CreateTestMainTable extends Migration
             $table->increments('id');
                 $table->string('nikename', 20)->nullable();
                 $table->string('mobile')->nullable();
-                $table->index('mobile');
                 $table->string('password')->nullable();
             $table->timestamps();
             $table->softDeletes();
