@@ -274,6 +274,7 @@ class ComposerStaticInit4bc7608a6565ad7e14d7f268e4ed34f9
     public static $classMap = array (
         'CreateArticalContentTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_30_221837_create_artical_content_table.php',
         'CreateArticlesTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_07_015759_create_articles_table.php',
+        'CreateBookCommentTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_03_213153_create_book_comment_table.php',
         'CreateBookTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_03_213118_create_book_table.php',
         'CreateTestBelongTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_10_115925_create_test_belong_table.php',
         'CreateTestMainTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_10_115918_create_test_main_table.php',
