@@ -13,7 +13,14 @@ class CreateBookCommentTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('book_comments', function(Blueprint $table) {
+            $table->increments('id');
+                $table->integer('book_id');
+                $table->index('state');
+                $table->string('comment');
+            $table->timestamps();
+            $table->softDeletes();
+        });
     }
 
     /**
@@ -23,6 +30,6 @@ class CreateBookCommentTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('book_comments');
     }
 }
