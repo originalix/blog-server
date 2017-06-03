@@ -32,3 +32,8 @@ class CreateTestBelongTable extends Migration
         Schema::dropIfExists('test_belong');
     }
 }
+
+/*
+id title price
+id book_id comment_count
+ */
