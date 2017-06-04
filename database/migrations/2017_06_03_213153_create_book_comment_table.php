@@ -16,7 +16,7 @@ class CreateBookCommentTable extends Migration
         Schema::create('book_comments', function(Blueprint $table) {
             $table->increments('id');
                 $table->integer('book_id');
-                $table->index('state');
+                $table->index('book_id');
                 $table->string('comment');
             $table->timestamps();
             $table->softDeletes();
