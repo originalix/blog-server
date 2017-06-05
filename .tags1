@@ -1,0 +1,33 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ArticalController	/Users/Lix/Documents/www/htdocs/blogService/app/Http/Controllers/ArticalController.php	/^class ArticalController extends Controller$/;"	class	line:16
+create	/Users/Lix/Documents/www/htdocs/blogService/app/Http/Controllers/ArticalController.php	/^    public function create(Request $request)$/;"	function	line:22
+cookie	/Users/Lix/Documents/www/htdocs/blogService/app/Http/Controllers/ArticalController.php	/^        $cookie = $request->cookie('lix_blog_token');$/;"	variable	line:24
+artical	/Users/Lix/Documents/www/htdocs/blogService/app/Http/Controllers/ArticalController.php	/^            $artical = $this->saveArtical($request);$/;"	variable	line:29
+saveArtical	/Users/Lix/Documents/www/htdocs/blogService/app/Http/Controllers/ArticalController.php	/^    private function saveArtical(Request $request)$/;"	function	line:38
+isValid	/Users/Lix/Documents/www/htdocs/blogService/app/Http/Controllers/ArticalController.php	/^        $isValid = $this->validArtical($request);$/;"	variable	line:40
+title	/Users/Lix/Documents/www/htdocs/blogService/app/Http/Controllers/ArticalController.php	/^        $title = $request->get('title');$/;"	variable	line:44
+desc	/Users/Lix/Documents/www/htdocs/blogService/app/Http/Controllers/ArticalController.php	/^        $desc = $request->get('desc');$/;"	variable	line:45
+content	/Users/Lix/Documents/www/htdocs/blogService/app/Http/Controllers/ArticalController.php	/^        $content = $request->get('content');$/;"	variable	line:46
+date	/Users/Lix/Documents/www/htdocs/blogService/app/Http/Controllers/ArticalController.php	/^        $date = $request->get('date');$/;"	variable	line:47
+artical	/Users/Lix/Documents/www/htdocs/blogService/app/Http/Controllers/ArticalController.php	/^        $artical = Artical::init(1, $title, $desc, $date);$/;"	variable	line:48
+content	/Users/Lix/Documents/www/htdocs/blogService/app/Http/Controllers/ArticalController.php	/^        $content = ArticalContent::init($artical, $content);$/;"	variable	line:49
+validArtical	/Users/Lix/Documents/www/htdocs/blogService/app/Http/Controllers/ArticalController.php	/^    private function validArtical(Request $request)$/;"	function	line:53
+show	/Users/Lix/Documents/www/htdocs/blogService/app/Http/Controllers/ArticalController.php	/^    public function show($id)$/;"	function	line:67
+artical	/Users/Lix/Documents/www/htdocs/blogService/app/Http/Controllers/ArticalController.php	/^        $artical = ArticalContent::find($id);$/;"	variable	line:69
+find	/Users/Lix/Documents/www/htdocs/blogService/app/Http/Controllers/ArticalController.php	/^    public function find($id)$/;"	function	line:77
+artical	/Users/Lix/Documents/www/htdocs/blogService/app/Http/Controllers/ArticalController.php	/^        $artical = ArticalContent::find($id);$/;"	variable	line:79
+data	/Users/Lix/Documents/www/htdocs/blogService/app/Http/Controllers/ArticalController.php	/^        $data = array($/;"	variable	line:83
+findUserArtices	/Users/Lix/Documents/www/htdocs/blogService/app/Http/Controllers/ArticalController.php	/^    public function findUserArtices($userId)$/;"	function	line:93
+artices	/Users/Lix/Documents/www/htdocs/blogService/app/Http/Controllers/ArticalController.php	/^        $artices = Artical::where('user_id', $userId)->get();$/;"	variable	line:95
+articalList	/Users/Lix/Documents/www/htdocs/blogService/app/Http/Controllers/ArticalController.php	/^    public function articalList($userId, Request $request)$/;"	function	line:102
+count	/Users/Lix/Documents/www/htdocs/blogService/app/Http/Controllers/ArticalController.php	/^        $count = $request->input('list');$/;"	variable	line:104
+artices	/Users/Lix/Documents/www/htdocs/blogService/app/Http/Controllers/ArticalController.php	/^            $artices = Artical::where('user_id', $userId)->orderBy('updated_at', 'desc')->paginate($count);$/;"	variable	line:106
+artices	/Users/Lix/Documents/www/htdocs/blogService/app/Http/Controllers/ArticalController.php	/^            $artices = Artical::where('user_id', $userId)->orderBy('updated_at', 'desc')->paginate(10);$/;"	variable	line:108
+parse	/Users/Lix/Documents/www/htdocs/blogService/app/Http/Controllers/ArticalController.php	/^    public function parse(Request $request)$/;"	function	line:113
+artical	/Users/Lix/Documents/www/htdocs/blogService/app/Http/Controllers/ArticalController.php	/^        $artical = Artical::find(4);$/;"	variable	line:115
+file	/Users/Lix/Documents/www/htdocs/blogService/app/Http/Controllers/ArticalController.php	/^        $file = Storage::disk('artical')->get($artical->file_name);$/;"	variable	line:119
