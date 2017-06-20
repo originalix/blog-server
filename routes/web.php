@@ -44,3 +44,6 @@ Route::any('/delete', ['uses' => 'TestMainController@delete'], function () {
 });
 Route::any('/ajax', ['uses' => 'TestMainController@ajax'], function () {
 });
+
+Route::get('/test', ['uses' => 'HTMLController@test'], function() {
+});
