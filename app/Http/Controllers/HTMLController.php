@@ -8,6 +8,6 @@ class HTMLController extends Controller
 {
     public function test()
     {
-        return '测试界面';
+        return view('Test.cache');
     }
 }
